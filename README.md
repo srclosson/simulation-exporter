@@ -1,6 +1,10 @@
 Simulation Exporter
 ===================
 
+Forked by Steph
+* Updated to use the latest golang
+* Right now, the config is tied into the docker file. So unless you mount something over the config, it will take the config provided.
+
 [![license](https://img.shields.io/github/license/webdevops/simulation-exporter.svg)](https://github.com/webdevops/simulation-exporter/blob/master/LICENSE)
 [![Docker](https://img.shields.io/badge/docker-webdevops%2Fsimulation--exporter-blue.svg?longCache=true&style=flat&logo=docker)](https://hub.docker.com/r/webdevops/simulation-exporter/)
 [![Docker Build Status](https://img.shields.io/docker/build/webdevops/simulation-exporter.svg)](https://hub.docker.com/r/webdevops/simulation-exporter/)
