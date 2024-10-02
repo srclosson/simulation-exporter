@@ -7,27 +7,27 @@ metrics:
     labels: [nodename]
     items:
     - value: 1
-      labels: {nodename: "SIMULATOR"}
+      labels: {nodename: "sim_exporter1"}
 
   node_filesystem_size_bytes:
     help: Filesystem space available to non-root users in bytes.
     type: gauge
-    labels: [device, fstype, mountpoint]
+    labels: [device, fstype, mountpoint, instance]
     items:
     - value: 3TB
-      labels: {device: "/dev/sda1", fstype: "ext4", mountpoint: "/"}
+      labels: {device: "/dev/sda1", fstype: "ext4", mountpoint: "/", instance: "sim_exporter1"}
     - value: 2TB
-      labels: {device: "/dev/sdb1", fstype: "ext4", mountpoint: "/"}
+      labels: {device: "/dev/sdb1", fstype: "ext4", mountpoint: "/", instance: "sim_exporter1"}
 
   node_filesystem_free_bytes:
     help: Filesystem free space in bytes.
     type: gauge
-    labels: [device, fstype, mountpoint]
+    labels: [device, fstype, mountpoint, instance]
     items:
     - value: 100-500MB
-      labels: {device: "/dev/sda1", fstype: "ext4", mountpoint: "/"}
+      labels: {device: "/dev/sda1", fstype: "ext4", mountpoint: "/", instance: "sim_exporter1"}
     - value: 100-500MB
-      labels: {device: "/dev/sdb1", fstype: "ext4", mountpoint: "/"}
+      labels: {device: "/dev/sdb1", fstype: "ext4", mountpoint: "/", instance: "sim_exporter1"}
 
   node_entropy_available_bits:
     type: gauge
@@ -36,10 +36,129 @@ metrics:
 
   node_memory_MemTotal_bytes:
     type: gauge
+    labels: [instance]
     items:
     - value: 24GB
+      labels: {instance: "sim_exporter1"}
 
   node_memory_Active_bytes:
     type: gauge
+    labels: [instance]
     items:
     - value: 22GB-23GB
+      labels: {instance: "sim_exporter1"}
+
+  homeassistant_battery_level:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 100-500
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Battery Level"}
+
+
+  homeassistant_battery_level_percent:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-100
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Battery Level Percent"}
+
+  homeassistant_battery_percent:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-100
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Battery Percent"}
+
+  homeassistant_binary_sensor_state:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-10
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Binary Sensor State"}
+
+  homeassistant_climate_action:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-10
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Climate Action"}
+
+  homeassistant_current_temperature_c:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 15-50
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Current Temperature C"}
+
+  homeassistant_entity_available:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-1
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Entity Available"}
+
+  homeassistant_humidifier_target_humidity_percent:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-100
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Humidifier Target Humidity Percent"}
+
+  homeassistant_humidity_percent:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-100
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Humidity Percent"}
+
+  homeassistant_input_boolean_state:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-1
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Input Boolean State"}
+
+  homeassistant_last_updated_time_seconds:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 655535
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Last Updated Time Seconds"}
+
+  homeassistant_light_state:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-1
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Light State"}
+
+  homeassistant_lock_state:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-1
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Lock State"}
+
+  homeassistant_sensor_unit:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 0-10
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Sensor Unit"}
+
+  homeassistant_switch_state:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 1-10
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Switch State"}
+
+  homeassistant_temperature_c:
+    type: gauge
+    labels: [instance, entity, friendly_name]
+    items:
+    - value: 30-100
+      labels: {instance: "sim_exporter1", entity: "0x01", friendly_name: "Temperature C"}
+
+
